@@ -7,3 +7,7 @@
 
 npm i babel-loader @babel/core @babel/preset-env @babel/preset-react @babel/polyfill -D
 npm i @babel/plugin-proposal-decorators @babel/plugin-proposal-class-properties -D
+
+## 什么是预设？什么是插件？
+- 预设其实就是插件的集合，相当于把常用或者说必用的插件集合到这个预设里，安装的时候
+安装这个预设就可以了，不需要一个个插件安装

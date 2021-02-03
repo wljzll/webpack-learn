@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: resolve(__dirname, "dist"), // 输出文件夹的绝对路径
     filename: "main.js", // 输出的文件名
-    // publicPath: "/",
+    publicPath: "/assets",
   },
   // 1) devServer会启动一个HTTP开发服务器，把一个文件夹作为静态根目录
   // 2) 为了提高性能，使用的是内存文件系统，将文件打包到内存中
@@ -31,6 +31,10 @@ module.exports = {
             presets: [
               "@babel/preset-env", // 可以转换JS语法
               "@babel/preset-react" // 可以转换JSX语法
+            ],
+            plugins:[
+              ["@babel/plugin-proposal-decorators",{legacy: true} ],
+              ["@babel/plugin-proposal-class-properties",{loose: true} ]
             ]
           }
         }
