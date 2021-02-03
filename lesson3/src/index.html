@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webpack5</title>
+</head>
+<body>
+    <h1>这是通过webpack-dev-serve中的 contentBase处理的：
+        <br>注意：如果不加 / 会被认为是相对路径，会去交给html-loader处理，
+        <br>然后html-loader通知webpack，
+        <br>再交给url-loader处理，
+        <br>由于路径错误，会导致图片无法加载
+    </h1>
+    <img src="/logo1.jpg" alt="">
+    <h1>CSS中url引入图片</h1>
+    <div id="image-container">image-container</div>
+    <h1>相对路径：交给html-loader处理，然后交给webpack，webpack调用url-loader处理</h1>
+    <img src="./images/logo.jpg" alt="">
+</body>
+</html>

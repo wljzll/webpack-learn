@@ -1,0 +1,11 @@
+@import './bg.css';
+body {
+    color: 'yellow';
+}
+
+#image-container{
+    width: 300px;
+    height: 150px;
+    border: 1px dashed red;
+    background: url(./images/logo.jpg) no-repeat;
+}
