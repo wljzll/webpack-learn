@@ -29,7 +29,17 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
-              "@babel/preset-env", // 可以转换JS语法
+             [ "@babel/preset-env", {
+               useBuiltIns: 'usage', // 按需加载polyfill
+               corejs: {version: 3}, // 指定corejs的版本号，2或者3版本，其实就是polyfill
+               targets: { // 指定要兼容哪些浏览器及其版本
+                 chrome: '60',
+                 firefox: '60',
+                 ie: '9',
+                 safari: '10',
+                 edge: '17'
+               }
+             }], // 可以转换JS语法
               "@babel/preset-react" // 可以转换JSX语法
             ],
             plugins:[
