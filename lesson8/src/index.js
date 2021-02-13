@@ -1,5 +1,4 @@
-const sum = () => {
-    debugger;
-    console.log(123);
-};
-sum();
+// require('lodash');
+// import _ from "lodash";
+
+// alert(_.join(['a', 'b', 'c'], '~'));
