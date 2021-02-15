@@ -4,12 +4,12 @@ const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 const webpack = require("webpack");
 
 const processENV = process.env.NODE_ENV;
-console.log(processENV);
+console.log('配置文件中的process.env.NODE_ENV：' + process.env.NODE_ENV);
 module.exports = (env) => {
     console.log('函数里的', env);
     return ({
         //  mode 当前的运行模式：开发环境/生产环境/不指定环境
-        mode: "development",
+        // mode: "development",
         devtool: "cheap-module-source-map",
         entry: "./src/index.js",
         output: {

@@ -8,7 +8,7 @@
 - { WEBPACK_SERVE: true, development: true }，所以此时需要通过
 - env.development取值去判断环境
 
-### 第二种配置环境变量的方式：cross-env
+### 第二种配置环境变量的方式：cross-env 跨操作系统配置环境变量
 - 1、安装cross-env：npm i cross-env -D
 - 2、在package.json的脚本中配置脚本：
 -    "build": "cross-env NODE_ENV=production webpack",
@@ -17,8 +17,8 @@
 - 结果：就是NODE_EVN对应的值
 
 ### 浏览器环境下使用环境变量的问题
-- 使用`webpack.definePlugin`插件定义根据环境变量的值给window包装一个
-- 对应的环境变量
+- 使用`webpack.definePlugin`插件定义：根据环境变量的值包装一个
+- 对应的全局环境变量，但是并未挂载到window上，而是打包时给变成实际值了。
 new webpack.DefinePlugin({
     DEVELOPMENT: JSON.stringify(processENV === 'development'),
     VERSION: "1",
@@ -34,3 +34,4 @@ new webpack.DefinePlugin({
 -    如'true'，
 - 3、如果配置的是对象字面量，那么该对象的所有的key会以同样的方式去定义
 -    JSON.stringify('true')的结果是 'true'
+
