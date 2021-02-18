@@ -1,1 +1,7 @@
-console.log('模块中的process.env.NODE_ENV：' + process.env.NODE_ENV);
+// import "@babel/polyfill"
+// import "core-js/stable"
+// import "regenerator-runtime/runtime"
+const p = new Promise(resolve => {
+    resolve('ok')
+})
+console.log(p)

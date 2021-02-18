@@ -60,3 +60,8 @@ plugins: [
 
 ## 最佳实践
 - babel-runtime适合在组件和类库项目中使用，而babel-polyfill适合在业务项目中使用
+
+- 未转义ES6高阶语法: main.js 247 bytes
+- 配置了useBuiltIns: false之后：main.js 466 KiB
+- 配置了useBuiltIns: "entry"之后，使用core-js@2 => main.js 393 KiB; 使用core-js@3 => main.js 650 KiB
+- 配置了useBuiltIns: "usage", main.js 319 KiB

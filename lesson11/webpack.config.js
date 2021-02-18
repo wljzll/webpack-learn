@@ -27,29 +27,30 @@ module.exports = (env) => {
             lodash: "_",
         }],
         module: {
-            rules: [
-                {
+            rules: [{
                     test: /\.jsx?$/,
                     use: [{
                         loader: 'babel-loader',
                         options: {
-                            presets: [
-                                ["@babel/preset-env",
-                                    //  {
-                                    //   useBuiltIns: 'usage', // 按需加载polyfill
-                                    //   corejs: { version: 3 }, // 指定corejs的版本号，2或者3版本，其实就是polyfill
-                                    //   targets: { // 指定要兼容哪些浏览器及其版本
-                                    //     chrome: '60',
-                                    //     firefox: '60',
-                                    //     ie: '9',
-                                    //     safari: '10',
-                                    //     edge: '17',
-                                    //   },
-                                    // }
-                                ], // 可以转换JS语法
-                                "@babel/preset-react", // 可以转换JSX语法
-                            ],
+                            // presets: [
+                            //     ["@babel/preset-env",
+                            //         {
+                            //             useBuiltIns: "usage", // 按需加载polyfill
+                            //             corejs: { version: 3 }, // 指定corejs的版本号，2或者3版本，其实就是polyfill
+                            //             targets: ">0.25%",
+                            //         }
+                            //     ], // 可以转换JS语法
+                            //     "@babel/preset-react", // 可以转换JSX语法
+                            // ],
                             plugins: [
+                                [
+                                    '@babel/plugin-transform-runtime',
+                                    {
+                                        corejs: 3,
+                                        helpers: true, // 是否提取一些类的继承的帮助方法，helpers=true 提取成单独的模块，如果是false不提取， 移除内联babel helpers并替换使用 babel-runtime/helpers来替换
+                                        regenerator: true // 是否开启 generatro函数转换成使用regenerator-runtime来避免全局污染 
+                                    }
+                                ],
                                 ["@babel/plugin-proposal-decorators", { legacy: true }],
                                 ["@babel/plugin-proposal-class-properties", { loose: true }],
                             ],
