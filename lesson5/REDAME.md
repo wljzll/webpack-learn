@@ -36,7 +36,7 @@ npm i @babel/plugin-proposal-decorators @babel/plugin-proposal-class-properties 
 
 ## useBuiltIns的三种配置：
 - false: 不对polyfill做操作，如果引入@babel/polyfill，则无视配置的浏览器兼容，引入所有的 polyfill
-- entry：根据配置的浏览器兼容，引入浏览器不兼容的 polyfill。需要在如果文件手动添加 import "@babel/polyfill"
+- entry：根据配置的浏览器兼容，引入浏览器不兼容的 polyfill。需要在入口文件手动添加 import "@babel/polyfill"
 - usage：会根据代码中使用到API来进行 polyfill，实现了按需加载。
 
 ## `@babel/preset-env`默认支持JS语法的转化，如果我们想转化API和实例方法，需要开启 useBuiltIns 才能转化
