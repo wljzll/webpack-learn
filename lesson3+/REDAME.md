@@ -7,7 +7,7 @@
 - 1) 表示的时打包生成的index.html文件里面引用资源的前缀，打包时会自动添加。
 
 ## 3、devServer中的publicPath:
-- 1) 表示的时打包生成的静态文件所在的位置，如果devServer中的publicPath没有设置，则会认为是output中设置的
+- 1) 表示的是打包生成的静态文件所在的位置，如果devServer中的publicPath没有设置，则会认为是output中设置的
     publicPath的值，如果output中也没设置，则默认是 / 
 
 ## 4、devServer中的contentBase:

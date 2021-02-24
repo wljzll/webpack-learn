@@ -17,7 +17,7 @@ module.exports = {
     contentBase: resolve(__dirname, "static"),
     writeToDisk: true, // 如果你指定此选项，也会把打包后的文件写入硬盘一份
     compress: true, // 是否启动压缩
-    port: 8080, // 制定HTTP服务器端口号
+    port: 8080, // 指定HTTP服务器端口号
     open: true, // 自动打开浏览器
     publicPath: "/",
   },

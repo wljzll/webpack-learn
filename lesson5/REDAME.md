@@ -10,7 +10,7 @@ npm i @babel/plugin-proposal-decorators @babel/plugin-proposal-class-properties 
 
 ## 什么是预设？什么是插件？
 - 预设其实就是插件的集合，相当于把常用或者说必用的插件集合到这个预设里，安装的时候
-安装这个预设就可以了，不需要一个个插件安装
+安装这个预设就可以了，不需要一个个安装插件
 
 ## legacy和loose参数：
 - legacy：默认值是false，设置为true时，表示使用过期的语法(stage1阶段)，因为stage1阶段的语法可能
@@ -32,7 +32,7 @@ npm i @babel/plugin-proposal-decorators @babel/plugin-proposal-class-properties 
 - 1、直接在JS文件顶部`全量引入` => require("@babel/polyfill")
 - 2、通过webpack配置`按需引入`
 - 3、通过polyfill.io通过cdn方式引入：polyfill.io会根据请求的浏览器，返回不同的代码，如果是高版本浏览器，
-不需要再去转换语法，则不返回哪些兼容方法，低版本浏览器则返回对应文件，文件中包含该版本浏览器不支持的方法。
+不需要再去转换语法，则不返回那些兼容方法，低版本浏览器则返回对应文件，文件中包含该版本浏览器不支持的方法。
 
 ## useBuiltIns的三种配置：
 - false: 不对polyfill做操作，如果引入@babel/polyfill，则无视配置的浏览器兼容，引入所有的 polyfill

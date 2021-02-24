@@ -2,7 +2,7 @@ module.exports = {
     // root: true,  // 表明这个配置文件是根配置文件，权限最高
     parser: 'babel-eslint', // 把源代码转换成抽象语法树，这个loader支持ES6语法的转换
     extends: "airbnb", // 继承airbnb的eslint配置
-    // 之地当解析器选项
+    // 指定解析器选项
     parserOptions: {
         sourceType: "module",
         ecmaVersion: 2015,

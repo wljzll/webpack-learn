@@ -41,6 +41,7 @@ alert(_.join(['a', 'b', 'c'], '~'));
     externals: [{
         lodash: "_", // 库名: 映射变量
     }],
+    
     > 第二种方式：使用HtmlWebpackExternalsPlugin按需 自动引入
      new HtmlWebpackExternalsPlugin({
       externals: [
