@@ -2,6 +2,7 @@ const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     //  mode 当前的运行模式：开发环境/生产环境/不指定环境
@@ -11,6 +12,7 @@ module.exports = {
     output: {
         path: resolve(__dirname, "dist"), // 输出文件夹的绝对路径
         filename: "main.js", // 输出的文件名
+        chunkFilename: '[name].[hash:8].js',
     },
     devServer: {
         contentBase: resolve(__dirname, "static"),
@@ -58,6 +60,9 @@ module.exports = {
                 },
             }],
         },
+        { test: /\.css$/, use: [MiniCssExtractPlugin.loader, "css-loader"] },
+        { test: /\.less$/, use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"] },
+        { test: /\.scss$/, use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"] },
         { test: /\.txt$/, use: "raw-loader" },
         {
             test: /\.(jpg|png|bmp|jpeg|gif)$/,
@@ -85,6 +90,9 @@ module.exports = {
         }),
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: ["**/*"],
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
         }),
     ],
 };
