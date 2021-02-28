@@ -13,6 +13,7 @@ module.exports = {
         path: resolve(__dirname, "dist"), // 输出文件夹的绝对路径
         filename: "main.js", // 输出的文件名
         chunkFilename: '[name].[hash:8].js',
+        publicPath: '/',
     },
     devServer: {
         contentBase: resolve(__dirname, "static"),
@@ -69,9 +70,11 @@ module.exports = {
             use: [{
                 loader: "url-loader",
                 options: {
-                    name: "[hash:8].[ext]",
+                    name: "images/[hash:8].[ext]",
                     esModule: false,
                     limit: 5 * 1024,
+                    // outputPath: 'images',
+                    // publicPath: '/images',
                 },
             }],
         },
@@ -81,6 +84,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: "./src/index.html",
+            chunks: 'main',
         }),
         new CopyWebpackPlugin({
             patterns: [{
