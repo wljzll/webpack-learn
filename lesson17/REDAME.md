@@ -31,3 +31,23 @@
     `
 
   ### 怎么设置多入口的默认打开入口
+    - 原理就是将你需要设置为默认入口的html设置为index.html
+    `
+      const pagesRoot = resolve(__dirname, 'src', 'pages');
+      const pages = fs.readdirSync(resolve(__dirname, 'src', 'pages'));
+      const HtmlWebpackPlugins = [];
+      const entry = pages.reduce((entry, fileName) => {
+        const entryName = basename(fileName, '.js');
+        entry[entryName] = join(pagesRoot, fileName);
+        HtmlWebpackPlugins.push(new HtmlWebpackPlugin({
+          template: "./src/index.html",
+          filename: `${entryName === 'page1' ? 'index' : entryName}.html`,
+          chunks: [entryName],
+          minify: {
+            collapseWhitespace: true,
+            removeComments: true,
+          },
+        }));
+        return entry;
+      }, {});
+    `
