@@ -8,12 +8,10 @@ module.exports = (env) => ({
   devtool: "hidden-source-map",
   entry: {
     main: './src/index.js',
-    vendor: ['lodash'],
   },
   output: {
     path: resolve(__dirname, "dist"), // 输出文件夹的绝对路径
     filename: "[name].[chunkhash:8].js", // 输出的文件名
-    chunkFilename: "[name].[chunkhash:8].js",
   },
   module: {
     rules: [

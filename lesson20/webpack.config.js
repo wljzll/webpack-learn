@@ -2,7 +2,10 @@ const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = (env) => ({
+require('dotenv').config();
+
+console.log('process.env.NODE_ENV', process.env.NODE_ENV);
+module.exports = () => ({
   //  mode 当前的运行模式：开发环境/生产环境/不指定环境
   mode: 'development',
   devtool: "hidden-source-map",
