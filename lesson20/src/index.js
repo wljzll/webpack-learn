@@ -1,5 +1,3 @@
-import './index.css';
+import a from './utils';
 
-import('./utils.js').then((res) => {
-    console.log(res);
-});
+console.log(a);

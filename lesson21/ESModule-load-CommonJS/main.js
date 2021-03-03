@@ -7,7 +7,7 @@
             require.r(exports)
             var title = require('./src/title.js')
             var title_default = require.n(title);
-            console.log(title_default)
+            console.log(title_default())
             console.log(title.age)
         },
         './src/title.js': (module, exports, require) => {

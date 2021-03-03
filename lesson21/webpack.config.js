@@ -1,6 +1,7 @@
 const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 module.exports = (env) => ({
   //  mode 当前的运行模式：开发环境/生产环境/不指定环境
@@ -55,5 +56,8 @@ module.exports = (env) => ({
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash:8].css",
     }),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ["**/*"],
+    })
   ],
 });

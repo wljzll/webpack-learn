@@ -1,1 +1,1 @@
-console.log('utils');
+export default 1;

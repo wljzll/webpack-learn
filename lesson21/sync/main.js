@@ -17,7 +17,7 @@
     }
     // 入口文件 ./scr/index.js的代码
     (() => {
-        let title = require('./src/title.js')
+        let title = require('../src/title.js')
         console.log(title)
     })()
 })()
