@@ -12,7 +12,8 @@ module.exports = (env) => ({
   },
   output: {
     path: resolve(__dirname, "dist"), // 输出文件夹的绝对路径
-    filename: "[name].[chunkhash:8].js", // 输出的文件名
+    filename: "[name].js", // 输出的文件名
+    chunkFilename: "[name].main.js", // 输出的文件名
   },
   module: {
     rules: [

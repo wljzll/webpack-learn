@@ -1,3 +1,6 @@
-import name, {age} from './title'
-console.log(name)
-console.log(age)
+let lazyLoadButton = document.getElementById('lazyLoad')
+lazyLoadButton.addEventListener('click', () => {
+    import(/* webpackChunkName: "hello" */'./hello').then(result =>{
+        console.log(result.default)
+    })
+})

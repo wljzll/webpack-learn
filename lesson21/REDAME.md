@@ -33,9 +33,13 @@
 
 ## webpack同步加载打包文件分析
  
-## commonjs加载commonjs模块
+## CommonJS模块加载CommonJS模块
 
-## commonjs加载ESModule
+## CommonJS模块加载ESModule模块
+
+## ESModule模块加载CommonJS模块
+
+## ESModule模块加载ESModule模块
 
 
 ## _webpack_require_.r为什么r方法用字母简写，而_webpack_require_不简写
@@ -46,3 +50,11 @@
 ## webpack是如何知道一个模块是ESModule还是CommonJS模块的
   - webpack会扫描文件，如果文件代码中有import或者export，webpack就认定这是一个
     ESModule
+
+## 总结
+  - CommonJS加载CommonJS   不需要任何处理
+  - CommonJS加载ESModule   ESModule需要转换成CommonJS
+  - ESModule加载ESModule   两个ESModule都需要转换成CommonJS
+  - ESModule加载ESModule   ESModule需要转换成CommonJS
+
+## 异步加载代码块的实现 
