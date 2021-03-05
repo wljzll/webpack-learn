@@ -7,3 +7,4 @@
   npm install cz-conventional-changelog --save-dev
   `
   "changelogs": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+   - set-ExecutionPolicy RemoteSigned
