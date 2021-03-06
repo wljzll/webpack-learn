@@ -8,6 +8,7 @@
     "validate-commit-msg": "^2.14.0"
   },
   "devDependencies": {
+    "conventional-changelog-cli": "^2.1.1",
     "cz-conventional-changelog": "^3.3.0"
   },
   "scripts": {
