@@ -11,13 +11,20 @@
     "cz-conventional-changelog": "^3.3.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "log": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "cz": "npm run log && git add . && git cz"
   },
   "author": "",
   "license": "ISC",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "validate-commit-msg"
     }
   }
 }
