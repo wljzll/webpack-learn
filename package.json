@@ -9,7 +9,10 @@
   },
   "devDependencies": {
     "conventional-changelog-cli": "^2.1.1",
-    "cz-conventional-changelog": "^3.3.0"
+    "cz-conventional-changelog": "^3.3.0",
+    "escodegen": "^2.0.0",
+    "esprima": "^4.0.1",
+    "estraverse": "^5.2.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
