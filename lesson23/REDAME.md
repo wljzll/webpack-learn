@@ -54,5 +54,11 @@
 ## 5、babel插件
   
   · 访问者模式`Visitor`对于某个对象或者一组对象，不同的访问者，产生的结果不同，执行的操作也不同
+
   · `@babel/core`Babel的编译器，核心API都在这里面，比如常见的 transform/parse/babylon Babel的解析器
-  · `babel-types`用于AST节点的lodash式工具库，它包含了构造、验证以及变换AST节点的方法，对编写处理AST逻辑非常有用
+
+  · `babel-types`[[https://babeljs.io/docs/en/babel-types.html]用于AST节点的lodash式工具库，它包含了构造、验证以及变换AST节点的方法，对编写处理AST逻辑非常有用
+
+  · `babel-template`可以将普通字符串转化成AST，提供更便捷的使用
+
+  · `babel-traverse`用于对AST的遍历，维护了整棵树的状态，并且负责替换、移除和添加节点

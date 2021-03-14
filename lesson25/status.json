@@ -1,0 +1,134 @@
+{
+    "hash": "6deac5ab9f0681dae214",
+    "version": "5.25.0",
+    "time": 85,
+    "builtAt": 1615728400389,
+    "publicPath": "auto",
+    "outputPath": "e:\\2021架构\\wepacklearn\\lesson25\\dist",
+    "assetsByChunkName": {
+        "main": [
+            "main.af457432.js"
+        ]
+    },
+    "assets": [
+        {
+            "type": "asset",
+            "name": "main.af457432.js",
+            "size": 107,
+            "emitted": false,
+            "comparedForEmit": false,
+            "cached": true,
+            "info": {
+                "immutable": true,
+                "chunkhash": "af457432",
+                "javascriptModule": false,
+                "size": 107
+            },
+            "chunkNames": [
+                "main"
+            ],
+            "chunkIdHints": [],
+            "auxiliaryChunkNames": [],
+            "auxiliaryChunkIdHints": [],
+            "related": {},
+            "chunks": [
+                "main"
+            ],
+            "auxiliaryChunks": [],
+            "isOverSizeLimit": false
+        }
+    ],
+    "chunks": [
+        {
+            "rendered": true,
+            "initial": true,
+            "entry": true,
+            "recorded": false,
+            "size": 0,
+            "sizes": {},
+            "names": [
+                "main"
+            ],
+            "idHints": [],
+            "runtime": [
+                "main"
+            ],
+            "files": [
+                "main.af457432.js"
+            ],
+            "auxiliaryFiles": [],
+            "hash": "af45743264574de85003",
+            "childrenByOrder": {},
+            "id": "main",
+            "siblings": [],
+            "parents": [],
+            "children": [],
+            "origins": [
+                {
+                    "module": "",
+                    "moduleIdentifier": "",
+                    "moduleName": "",
+                    "loc": "main",
+                    "request": "./src/index.js"
+                }
+            ]
+        }
+    ],
+    "modules": [],
+    "entrypoints": {
+        "main": {
+            "name": "main",
+            "chunks": [
+                "main"
+            ],
+            "assets": [
+                {
+                    "name": "main.af457432.js",
+                    "size": 107
+                }
+            ],
+            "filteredAssets": 0,
+            "assetsSize": 107,
+            "auxiliaryAssets": [],
+            "filteredAuxiliaryAssets": 0,
+            "auxiliaryAssetsSize": 0,
+            "children": {},
+            "childAssets": {},
+            "isOverSizeLimit": false
+        }
+    },
+    "namedChunkGroups": {
+        "main": {
+            "name": "main",
+            "chunks": [
+                "main"
+            ],
+            "assets": [
+                {
+                    "name": "main.af457432.js",
+                    "size": 107
+                }
+            ],
+            "filteredAssets": 0,
+            "assetsSize": 107,
+            "auxiliaryAssets": [],
+            "filteredAuxiliaryAssets": 0,
+            "auxiliaryAssetsSize": 0,
+            "children": {},
+            "childAssets": {},
+            "isOverSizeLimit": false
+        }
+    },
+    "errors": [
+        {
+            "loc": "main",
+            "message": "Module not found: Error: Can't resolve './src/index.js' in 'e:\\2021架构\\wepacklearn'",
+            "details": "resolve './src/index.js' in 'e:\\2021架构\\wepacklearn'\n  using description file: e:\\2021架构\\wepacklearn\\package.json (relative path: .)\n    Field 'browser' doesn't contain a valid alias configuration\n    using description file: e:\\2021架构\\wepacklearn\\package.json (relative path: ./src/index.js)\n      no extension\n        Field 'browser' doesn't contain a valid alias configuration\n        e:\\2021架构\\wepacklearn\\src\\index.js doesn't exist\n      .js\n        Field 'browser' doesn't contain a valid alias configuration\n        e:\\2021架构\\wepacklearn\\src\\index.js.js doesn't exist\n      .json\n        Field 'browser' doesn't contain a valid alias configuration\n        e:\\2021架构\\wepacklearn\\src\\index.js.json doesn't exist\n      .wasm\n        Field 'browser' doesn't contain a valid alias configuration\n        e:\\2021架构\\wepacklearn\\src\\index.js.wasm doesn't exist\n      as directory\n        e:\\2021架构\\wepacklearn\\src\\index.js doesn't exist",
+            "stack": "ModuleNotFoundError: Module not found: Error: Can't resolve './src/index.js' in 'e:\\2021架构\\wepacklearn'\n    at e:\\2021架构\\wepacklearn\\lesson25\\node_modules\\webpack\\lib\\Compilation.js:1665:28\n    at e:\\2021架构\\wepacklearn\\lesson25\\node_modules\\webpack\\lib\\NormalModuleFactory.js:700:13\n    at eval (eval at create (e:\\2021架构\\wepacklearn\\lesson25\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:8:1)\n    at e:\\2021架构\\wepacklearn\\lesson25\\node_modules\\webpack\\lib\\NormalModuleFactory.js:271:22\n    at eval (eval at create (e:\\2021架构\\wepacklearn\\lesson25\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:7:1)\n    at e:\\2021架构\\wepacklearn\\lesson25\\node_modules\\webpack\\lib\\NormalModuleFactory.js:400:22\n    at e:\\2021架构\\wepacklearn\\lesson25\\node_modules\\webpack\\lib\\NormalModuleFactory.js:117:11\n    at e:\\2021架构\\wepacklearn\\lesson25\\node_modules\\webpack\\lib\\NormalModuleFactory.js:624:24\n    at e:\\2021架构\\wepacklearn\\lesson25\\node_modules\\webpack\\lib\\NormalModuleFactory.js:766:8\n    at e:\\2021架构\\wepacklearn\\lesson25\\node_modules\\webpack\\lib\\NormalModuleFactory.js:886:5"
+        }
+    ],
+    "errorsCount": 1,
+    "warnings": [],
+    "warningsCount": 0,
+    "children": []
+}

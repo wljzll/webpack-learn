@@ -13,7 +13,6 @@ let BabelPluginTransformEs2015ArrowFunctions = {
     // 每个插件都会有自己的访问器
     visitor: {
         ArrowFunctionExpression(nodePath) {
-            console.log(nodePath.node)
             let node = nodePath.node
             // 处理this指针的问题
             const thisBinding = hoistFunctionEnvironment(nodePath)
@@ -39,6 +38,7 @@ function hoistFunctionEnvironment(fnPath) {
             id: types.identifier(thisBinding),
             init: types.thisExpression()
         })
+        console.log(types.identifier(thisBinding), types.thisExpression())
         // 遍历所有使用到this的路径节点(子节点)，把所有的thisExpression替换成_this
         thisPaths.forEach(thisChild => {
             let thisRef = types.identifier(thisBinding)
@@ -48,17 +48,19 @@ function hoistFunctionEnvironment(fnPath) {
 }
 function getScopeInfoInformation(fnPath) {
     thisPaths = []
+    // 找到当前函数中用到this的节点
     fnPath.traverse({
         ThisExpression(expression) {
             thisPaths.push(expression)
         }
     })
+    console.log(thisPaths)
     return thisPaths
 }
 let targetCode = core.transform(sourceCode, {
     plugins: [BabelPluginTransformEs2015ArrowFunctions]
 })
-console.log(targetCode.code)
+// console.log(targetCode.code)
 // const sum = function (a, b) {
 //     return a + b;
 // };

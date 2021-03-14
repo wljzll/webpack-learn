@@ -27,8 +27,7 @@
 
   - 3) 在package.json中配置脚本：`webpack --env=development` 改变的是配置文件导出函数中的参数 env 的值。
 
-  - 4) 在package.json中配置脚本：`cross-env NODE_ENV=production` 或者 `set NODE_ENV=production` 改变的是配置文
-  - 件也就是node环境下的环境变量。
+  - 4) 在package.json中配置脚本：`cross-env NODE_ENV=production` 或者 `set NODE_ENV=production` 改变的是配置文件也就是node环境下的环境变量。
 
   - 5) 在配置文件中通过DefinePlugin插件去定义对应的全局变量 `process.env.NODE_ENV` 来覆盖webpack默认调用 
   - DefindPlugin插件设置的 `process.env.NODE_ENV` 全局变量。
