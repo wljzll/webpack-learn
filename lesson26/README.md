@@ -22,3 +22,16 @@
     使用非同一个插件，是无序的
     挂载的顺序只能决定 webpack先执行那个插件的apply方法
     而触发apply方法中注册的钩子，则是webpack制定的钩子的执行顺序
+
+
+
+## 问题
+  
+  - webpack内部也是使用babel去生成、遍历语法树的吗？
+    答：webpack内部是使用acorn
+
+  - parse函数的第二个参数 sourceType: 'module'是什么意思？
+    答：表示源代码是一个模块，除了模块类型还有脚本类型 script
+
+  - path.posix的posix是干啥的？
+    答：为了全部统一成 unix 格式的分割符 => \; 如果不加的话可能是 /，也可能是 \，五花八门

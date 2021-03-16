@@ -12,11 +12,14 @@ module.exports = {
     path: resolve(__dirname, "dist"), // 输出文件夹的绝对路径
     filename: "[name].[chunkhash:8].js", // 输出的文件名
   },
-  module:{
-    rules:[
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts']
+  },
+  module: {
+    rules: [
       {
-        test:/\.js$/,
-        use:[
+        test: /\.js$/,
+        use: [
           resolve(__dirname, 'loaders', 'logger1-loader.js'),
           resolve(__dirname, 'loaders', 'logger2-loader.js'),
           // path.resolve(__dirname, 'loaders', 'logger3-loader'),
