@@ -22,3 +22,26 @@
     使用非同一个插件，是无序的
     挂载的顺序只能决定 webpack先执行那个插件的apply方法
     而触发apply方法中注册的钩子，则是webpack制定的钩子的执行顺序
+
+
+
+## 问题
+  
+  - webpack内部也是使用babel去生成、遍历语法树的吗？
+    答：webpack内部是使用acorn
+
+  - parse函数的第二个参数 sourceType: 'module'是什么意思？
+    答：表示源代码是一个模块，除了模块类型还有脚本类型 script
+
+  - path.posix的posix是干啥的？
+    答：为了全部统一成 unix 格式的分割符 => \; 如果不加的话可能是 /，也可能是 \，五花八门
+
+  - moduleId和chunkId
+    答：模块的绝对路径相对于根目录的路径就是moduleId
+    例如：根目录：E:\2021架构\wepacklearn\lesson26\
+          绝对路径：E:\2021架构\wepacklearn\lesson26\src\index.js
+    所以，moduleId就是 ./scr/index.js
+
+    chunkId：代码块id，一般是代码分割产生的，比如：import('./title.js')
+    代码块的名字：./src/title.js
+    chunkId就是将 . 去掉， /替换成_  => src_title_js
