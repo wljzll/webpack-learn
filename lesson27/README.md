@@ -1,4 +1,4 @@
-# SPA
+# MPA
 
   ## tapable.js
     · tapable是一个类似于Node.js中的EvnetEmitter的库，但更专注于自定义事件的触发和处理
