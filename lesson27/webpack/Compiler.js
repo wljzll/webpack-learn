@@ -30,24 +30,24 @@ class Compiler {
   run(callback) {
     /**
      * entry：
-     * { page1: './src/page1.js', page2: './src/page2.js' }
-     * 
+        { page1: './src/page1.js', page2: './src/page2.js' }
+      
      * entryModule：
-     *  {
-     *       id: './src/page1.js',
-     *       dependencies: [ 'C:/webpacklearn/lesson27/src/title.js' ],
-     *       _source: 'const title = require("./src/title.js");\n\nconsole.log(title);',
-     *       entryName: 'page1'
-     *  }
-     *  {
-     *      id: './src/page2.js',
-     *      dependencies: [ 'C:/webpacklearn/lesson27/src/title.js' ],
-     *      _source: 'const title = require("./src/title.js");\n\nconsole.log(title);',
-     *      entryName: 'page2'
-     *  }
-     * 
+        {
+              id: './src/page1.js',
+              dependencies: [ 'C:/webpacklearn/lesson27/src/title.js' ],
+              _source: 'const title = require("./src/title.js");\n\nconsole.log(title);',
+              entryName: 'page1'
+        }
+        {
+            id: './src/page2.js',
+            dependencies: [ 'C:/webpacklearn/lesson27/src/title.js' ],
+            _source: 'const title = require("./src/title.js");\n\nconsole.log(title);',
+            entryName: 'page2'
+        }
+      
      * this.modules
-     *  [
+        [
           {
             id: './src/title.js',
             dependencies: [],
@@ -61,9 +61,9 @@ class Compiler {
             entryName: 'page2'
           }
         ]
-     * 
+
      * this.chunks：
-     * [
+        [
           {
             name: 'page1',
             entryModule: {
@@ -98,7 +98,7 @@ class Compiler {
     }
     
     for (const entryName in entry) {
-      let entryFilePath = toUnixPath(path.join(this.options.context, this.options.entry[entryName])); // E:\2021架构\wepacklearn\lesson26\src\index.js
+      let entryFilePath = toUnixPath(path.join(this.options.context, this.options.entry[entryName])); // E:\2021架构\wepacklearn\lesson26\src\page1.js
 
       // 从入口文件出发，调用所有配置的`loader`对模块进行编译
       let entryModule = this.buildModule(entryName, entryFilePath);
