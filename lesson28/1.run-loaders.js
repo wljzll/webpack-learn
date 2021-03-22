@@ -1,13 +1,7 @@
 let path = require('path');
 let fs = require('fs');
 let { runLoaders } = require("loader-runner");
-let filePath = path.resolve(__dirname, 'src', 'index.js');
-let request = `inline-loader1!inline-loader2!${filePath}`;
-let loaders = [];
-let parts = request.split('!');
-let resource = parts.pop(); // 最后一个元素就是要加载的资源
-let resolveLoader = (loader) => path.resolve(__dirname, 'loaders', loader);
-let inlineLoaders = parts.map(resolveLoader)
+let resource = path.resolve(__dirname, 'src', 'index.js');
 
 let loaders = [
         path.resolve(__dirname, 'loaders', 'post-loader1.js'),
