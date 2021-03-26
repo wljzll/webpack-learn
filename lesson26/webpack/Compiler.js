@@ -63,7 +63,7 @@ class Compiler {
     //       },
     //       modules: [ [Object], [Object] ]
     //     }
-    //   ]
+    //  ]
     this.chunks.push(chunk);
 
     // 9、再把每个Chunk转换成一个单独的文件加入到输出列表
@@ -71,9 +71,6 @@ class Compiler {
       // key: 文件名 value:打包后的内容
       this.assets[chunk.name + ".js"] = getSource(chunk); // { 'main.js': 'main' }
     });
-    console.log("this.modules========", this.modules);
-    console.log("this.chunks========", this.chunks);
-    console.log("this.assets========", this.assets);
 
     // 10、在确定好输出内容后，根据配置确定输出的路径和文件名，把文件内容写入到文件系统
     this.files = Object.keys(this.assets);
@@ -101,6 +98,7 @@ class Compiler {
     // 查找此模块对应的loader
     let rules = this.options.module.rules;
     let loaders = [];
+    // 找到所有处理本文件类型的loader
     for (let index = 0; index < rules.length; index++) {
       if (rules[index].test.test(modulePath)) {
         loaders = [...loaders, ...rules[index].use];

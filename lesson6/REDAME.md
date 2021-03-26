@@ -1,7 +1,7 @@
 ## eslint代码风格检查
 ## 依赖：npm i eslint eslint-loader babel-eslint -D
 - eslint：核心包
-- eslint-laoder：把源代码转换成抽象语法树，这个loader支持ES6语法的转换
+- eslint-loader：把源代码转换成抽象语法树，这个loader支持ES6语法的转换
 - babel-eslint：转换ES6的转换工具
 
 ## 启用eslint代码风格检查步骤

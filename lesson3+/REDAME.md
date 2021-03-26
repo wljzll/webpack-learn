@@ -14,7 +14,7 @@
     - 1) 用于配置提供额外静态文件内容的目录
 
 
-  ### 1、devServer中的contentBase和output中的path：
+## 1、devServer中的contentBase和output中的path：
     - 1) devServer启动HTTP服务器时，默认读取的是output中的path路径，也就是以output中的path作为服务器的根目录。
     - 2) 如果devServer配置了contentBase，根目录还是不变，首先默认还是读取output中的path作为服务器的根目录，当在根目录中查找资源找不到时，会读取devServer中contentBase的路径，再去查找资源，如果找不到，404
 

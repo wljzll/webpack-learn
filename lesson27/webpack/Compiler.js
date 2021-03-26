@@ -21,7 +21,7 @@ class Compiler {
       run: new SyncHook(), // 会在开始编译的时候触发
       done: new SyncHook(), // 会在完成编译的时候触发
     };
-    this.entries = []; // 存放所有的入口模块 
+    this.entries = []; // 存放所有的入口模块
     this.modules = []; // 存放所有的模块
     this.chunks = []; // 存放所有的chunks this.chunks = new Set()
     this.assets = {}; // 输出列表 存放着将要产出的资源文件
@@ -29,10 +29,10 @@ class Compiler {
   }
   run(callback) {
     /**
-     * entry：
+       entry：
         { page1: './src/page1.js', page2: './src/page2.js' }
       
-     * entryModule：
+       entryModule：
         {
               id: './src/page1.js',
               dependencies: [ 'C:/webpacklearn/lesson27/src/title.js' ],
@@ -46,7 +46,7 @@ class Compiler {
             entryName: 'page2'
         }
       
-     * this.modules
+       this.modules
         [
           {
             id: './src/title.js',
@@ -62,7 +62,7 @@ class Compiler {
           }
         ]
 
-     * this.chunks：
+       this.chunks：
         [
           {
             name: 'page1',
@@ -85,7 +85,6 @@ class Compiler {
             modules: [ [Object] ]
           }
         ]
-     * 
      */
     this.hooks.run.call(); // 当调用run方法的时候会触发run这个钩子，进而执行它的回调
 
@@ -96,22 +95,30 @@ class Compiler {
     } else {
       entry = this.options.entry;
     }
-    
+
     for (const entryName in entry) {
-      let entryFilePath = toUnixPath(path.join(this.options.context, this.options.entry[entryName])); // E:\2021架构\wepacklearn\lesson26\src\page1.js
+      let entryFilePath = toUnixPath(
+        path.join(this.options.context, this.options.entry[entryName])
+      ); // E:\2021架构\wepacklearn\lesson26\src\page1.js
 
       // 从入口文件出发，调用所有配置的`loader`对模块进行编译
       let entryModule = this.buildModule(entryName, entryFilePath);
-      
+
       //  8、根据入口和模块之间的依赖关系，组装成一个个包含多个模块的 Chunk
-      let chunk = { name: entryName, entryModule, modules: this.modules.filter(module => module.entryName === entryName) };
+      let chunk = {
+        name: entryName,
+        entryModule,
+        modules: this.modules.filter(
+          (module) => module.entryName === entryName
+        ),
+      };
       this.chunks.push(chunk);
       this.entries.push(chunk);
     }
-    
+
     // 9、再把每个Chunk转换成一个单独的文件加入到输出列表
     this.chunks.forEach((chunk) => {
-      let filename = this.options.output.filename.replace('[name]', chunk.name);
+      let filename = this.options.output.filename.replace("[name]", chunk.name);
       // key: 文件名 value:打包后的内容
       this.assets[filename] = getSource(chunk); // { 'main.js': [文件内容] }
     });
@@ -120,23 +127,23 @@ class Compiler {
     this.files = Object.keys(this.assets);
     for (const filename in this.assets) {
       // 本次编译输出的目标文件路径
-      let targetPath = path.join(this.options.output.path,filename);
+      let targetPath = path.join(this.options.output.path, filename);
       fs.writeFileSync(targetPath, this.assets[filename]);
     }
 
     this.hooks.done.call();
 
     callback(null, {
-      toJson : () => {
+      toJson: () => {
         return {
           entries: this.entries,
           chunks: this.chunks,
           modules: this.modules,
           files: this.files,
-          assets: this.assets
-        }
-      }
-    })
+          assets: this.assets,
+        };
+      },
+    });
   }
 
   /**
@@ -200,7 +207,12 @@ class Compiler {
           let extensions = this.options.resolve.extensions;
 
           // 获取完整文件路径（有文件后缀）=> E:\2021架构\wepacklearn\lesson26\src\title.js
-          depModulePath = tryExtensions(depModulePath,extensions,moduleName,dirname);
+          depModulePath = tryExtensions(
+            depModulePath,
+            extensions,
+            moduleName,
+            dirname
+          );
 
           // 模块ID的问题：每个打包后的模块都有个模块ID，如何生成require模块的模块ID
           let depModuleId = "./" + path.posix.relative(baseDir, depModulePath); // ./src/title.js
