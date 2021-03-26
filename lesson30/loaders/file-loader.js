@@ -12,11 +12,18 @@ function loader(content) {
     let filename = interpolateName(this, "[hash:8].[ext]", { content: content });
     console.log(filename, '========================')
     this.emitFile(filename, content);
+    
+    // if (typeof options.esModule === 'undefined' || options.esModule) {
+    //     return `export default __webpack_public_path__ + "${filename}"`
+    // } else {
+    //     return `module.exports = __webpack_public_path__ +"${filename}"`
+    // }
     if (typeof options.esModule === 'undefined' || options.esModule) {
         return `export default "${filename}"`
     } else {
-        return `module.exports="${filename}"`
+        return `module.exports = "${filename}"`
     }
+
 
 }
 
