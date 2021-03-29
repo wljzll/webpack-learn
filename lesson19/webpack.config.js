@@ -4,11 +4,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = (env) => ({
   //  mode 当前的运行模式：开发环境/生产环境/不指定环境
-  mode: 'development',
+  mode: "development",
   devtool: "hidden-source-map",
   entry: {
-    main: './src/index.js',
-    vendor: ['lodash'],
+    main: "./src/index.js",
+    vendor: ["lodash"],
   },
   output: {
     path: resolve(__dirname, "dist"), // 输出文件夹的绝对路径
@@ -27,11 +27,7 @@ module.exports = (env) => ({
       },
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
-        ],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
       { test: /\.txt$/, use: "raw-loader" },
       {

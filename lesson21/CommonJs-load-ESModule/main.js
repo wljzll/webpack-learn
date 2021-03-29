@@ -26,7 +26,7 @@
     var module = (cache[moduleId] = {
       exports: {},
     });
-    // 2.3 执行modules中对应模块的代码
+    // 2.3 执行modules中对应模块的代码 - 同时也给module的exports属性赋值
     modules[moduleId](module, module.exports, require);
       // 2.4 将当前加载的模块导出
     return module.exports;

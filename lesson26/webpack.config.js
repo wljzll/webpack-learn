@@ -10,7 +10,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: resolve(__dirname, "dist"), // 输出文件夹的绝对路径
-    filename: "[name].[chunkhash:8].js", // 输出的文件名
+    filename: "main.js", // 输出的文件名
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts']
@@ -20,8 +20,13 @@ module.exports = {
       {
         test: /\.js$/,
         use: [
+<<<<<<< HEAD
           resolve(__dirname, 'loaders', 'logger1-loader.js'),
           resolve(__dirname, 'loaders', 'logger2-loader.js'),
+=======
+          // resolve(__dirname, 'loaders', 'logger1-loader.js'),
+          // resolve(__dirname, 'loaders', 'logger2-loader.js'),
+>>>>>>> cd4d85717a36b261d93299d5c6bd3cb4a1779063
           // path.resolve(__dirname, 'loaders', 'logger3-loader'),
           // path.resolve(__dirname, 'loaders', 'logger4-loader'),
         ]
