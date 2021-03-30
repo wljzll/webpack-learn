@@ -51,8 +51,10 @@ function createLoaderObject(request) {
 function processResource(processOptions, loaderContext, finalCallback) {
   loaderContext.loaderIndex = loaderContext.loaderIndex - 1; // 索引等于最后一个loader的索引
   let resourcePath = loaderContext.resourcePath;
+  
   loaderContext.readResource(resourcePath, (err, resourceBuffer) => {
     if (err) finalCallback(err);
+    debugger
     processOptions.resourceBuffer = resourceBuffer; // 放的是资源的原始内容
     interateNormalLoaders(processOptions, loaderContext, [resourceBuffer], finalCallback)
   })
@@ -68,6 +70,7 @@ function interateNormalLoaders(processOptions, loaderContext, args, finalCallbac
     return interateNormalLoaders(
       processOptions,
       loaderContext,
+      args,
       finalCallback
     );
   }
@@ -153,7 +156,7 @@ function runSyncOrAsync(fn, context, args, callback) {
 
   // pitch的返回值可有可无
   let result = fn.apply(context, args);
-  console.log(fn, result, '======')
+  // console.log(args[0], fn, result, '======')
   if (isSync) {
     isDone = true; // 直接完成
     return callback(null, result); // 调用回调
