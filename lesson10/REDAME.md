@@ -34,7 +34,9 @@
 
 ### 总结：改变三种环境变量的方式
 - 1、node进程对象(node环境下的环境变量)：通过cross-env插件修改。
+
 - 2、模块内(JS文件中)的环境变量：
      - 1) 默认是 `production`，可以通过配置脚本： `webpack --mode=development`来改变。
      - 2）可以通过 `DefinePlugin` 插件，修改全局变量的方式来修改 `process.env.NODE_ENV`全局变量的值。
+     
 - 3、配置文件导出函数参数的环境变量：通过配置脚本 `webpack --env=development` 来改变。

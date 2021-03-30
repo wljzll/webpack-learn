@@ -3,7 +3,7 @@
 ### babel/polyfill
 
 - Babel默认只转换新的JavaScript语法，而不转换新的API，比如：Interator/Generator/Set/Maps/Proxy/Reflect/Symbol/Promise等
-- 全局对象，以及一些在全局对象上的方法(比如 Object.assign)都不会转码。
+  全局对象，以及一些在全局对象上的方法(比如 Object.assign)都不会转码。
 - 比如说，ES6在Array对象上新增了 Array.from 方法，Babel不会转码这个方法，如果想让这个方法运行，必须使用`babel-polyfill`来转
 - 换
 
