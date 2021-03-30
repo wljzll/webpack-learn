@@ -25,6 +25,7 @@ let rules = [
     use: ["pre-loader1", "pre-loader2"],
   },
 ];
+
 let preLoaders = [];
 let postLoaders = [];
 let normalLoaders = [];
