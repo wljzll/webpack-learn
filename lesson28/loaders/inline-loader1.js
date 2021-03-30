@@ -4,6 +4,6 @@ function loader(source) {
 }
 loader.pitch = function () {
     console.log('inline1-pitch')
-    return 'inline1-pitch'
+    // return 'inline1-pitch'
 }
 module.exports = loader

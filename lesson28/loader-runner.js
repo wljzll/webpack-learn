@@ -1,5 +1,5 @@
 let fs = require("fs");
-const { options } = require("less");
+let path = require('path');
 let readFile = fs.readFile.bind(this); // 读取硬盘上文件的默认方法
 
 let PATH_QUERY_FRAGMENT_REGEXP = /^([^?#]*)(\?[^#]*)?(#.*)?$/;
@@ -41,6 +41,10 @@ function createLoaderObject(request) {
     },
   });
   loaderObj.request = request;
+  let normal = require(loaderObj.path);
+  loaderObj.normal = normal;
+  loaderObj.pitch = normal.pitch;
+  loaderObj.raw = normal.raw;
   return loaderObj;
 }
 
@@ -50,7 +54,7 @@ function processResource(processOptions, loaderContext, finalCallback) {
   loaderContext.readResource(resourcePath, (err, resourceBuffer) => {
     if (err) finalCallback(err);
     processOptions.resourceBuffer = resourceBuffer; // 放的是资源的原始内容
-    interateNormalLoaders(processOptions, loaderContext, values, finalCallback)
+    interateNormalLoaders(processOptions, loaderContext, [resourceBuffer], finalCallback)
   })
 }
 
@@ -60,7 +64,7 @@ function interateNormalLoaders(processOptions, loaderContext, args, finalCallbac
   }
   let currentLoaderObject = loaderContext.loaders[loaderContext.loaderIndex];
   if (currentLoaderObject.normalExecuted) {
-    loaderContext.loaderIndex++;
+    loaderContext.loaderIndex = loaderContext.loaderIndex - 1;
     return interateNormalLoaders(
       processOptions,
       loaderContext,
@@ -70,12 +74,12 @@ function interateNormalLoaders(processOptions, loaderContext, args, finalCallbac
   let normalFunction = currentLoaderObject.normal;
   currentLoaderObject.normalExecuted = true; // 表示pitch函数已经执行过了
   convertArgs(args, currentLoaderObject.raw);
-  runSyncOrAsync(normalFunction, loaderContext.args, (err, ...values) => {
+  runSyncOrAsync(normalFunction, loaderContext, args, (err, ...values) => {
     if (err) finalCallback(err);
     interateNormalLoaders(processOptions, loaderContext, values, finalCallback)
   })
 }
-function convertArgs() {
+function convertArgs(args, raw) {
   if (raw && !Buffer.isBuffer(args[0])) { // 想要Buffer，但不是Buffer，转成Buffer
     args[0] = Buffer.from(args[0])
   } else if (!raw && Buffer.isBuffer(args[0])) { // 不想要Buffer，但是是Buffer，转成字符串
@@ -149,6 +153,7 @@ function runSyncOrAsync(fn, context, args, callback) {
 
   // pitch的返回值可有可无
   let result = fn.apply(context, args);
+  console.log(fn, result, '======')
   if (isSync) {
     isDone = true; // 直接完成
     return callback(null, result); // 调用回调

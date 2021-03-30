@@ -1,10 +1,11 @@
 let path = require("path");
 let fs = require("fs");
-let { runLoaders } = require("loader-runner");
+// let { runLoaders } = require("loader-runner");
+let { runLoaders } = require('./loader-runner');
 let filePath = path.resolve(__dirname, "src", "index.js");
 let request = `inline-loader1!inline-loader2!${filePath}`;
 let parts = request.replace(/^-?!+/, '')
-.split("!");
+  .split("!");
 let resource = parts.pop(); // 最后一个元素就是要加载的资源
 let resolveLoader = (loader) => path.resolve(__dirname, "loaders", loader);
 let inlineLoaders = parts.map(resolveLoader);
@@ -44,11 +45,11 @@ preLoaders = preLoaders.map(resolveLoader);
 postLoaders = postLoaders.map(resolveLoader);
 normalLoaders = normalLoaders.map(resolveLoader);
 let loaders = []
-if(request.startsWith('!!')) {
-  loaders = [ ...inlineLoaders];
-} else if(request.startsWith('-!')) {
+if (request.startsWith('!!')) {
+  loaders = [...inlineLoaders];
+} else if (request.startsWith('-!')) {
   loaders = [...postLoaders, ...inlineLoaders];
-} else if(request.startsWith('!')) {
+} else if (request.startsWith('!')) {
   loaders = [...postLoaders, ...inlineLoaders, ...preLoaders];
 } else {
   loaders = [...postLoaders, ...inlineLoaders, ...normalLoaders, ...preLoaders];
